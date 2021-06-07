@@ -1,0 +1,14 @@
+﻿@page "{_id:int}"
+@model RazorPages_CRUD_NO_EntityFramework.Pages.DeleteModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Supprimer un étudiant</h2>
+<hr/>
+<h4>Voulez-vous supprimer l'étudiant: <b>@Html.DisplayFor(Model=>Model.ListeEtudiants.nom)</b> ?</h4>
+<form method="post">
+    <input type="submit" value="Delete" class="btn btn-danger" />
+    <a asp-page="Index" class="btn btn-primary">Liste des étudiants</a>
+</form>
+

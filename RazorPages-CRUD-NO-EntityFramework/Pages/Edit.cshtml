@@ -1,0 +1,32 @@
+﻿@page "{_id:int}"
+@model RazorPages_CRUD_NO_EntityFramework.Pages.EditModel
+@{
+}
+<h2>Détails Etudiant:</h2>
+<form method="post">
+    <table class="table">
+        <tr>
+            <td>Id: @Html.DisplayFor(model => model.ListeEtudiants.id)</td>
+        </tr>
+        <tr>
+            <td>Nom: <input type="text" name="nom" placeholder="saisir le nom" asp-for="ListeEtudiants.nom" /> </td>
+        </tr>
+        <tr>
+            <td>Email: <input type="email" name="email" placeholder="saisir l'email" asp-for="ListeEtudiants.email" /> </td>
+        </tr>
+        <tr>
+            <td>Date Naissance: <input type="date" name="datenaissance" asp-for="ListeEtudiants.datenaissance" /> </td>
+        </tr>
+        <tr>
+            <td>
+                Sexe:<select id="sexe" name="sexe" asp-for="ListeEtudiants.sexe">
+                    <option value="M">Masculin</option>
+                    <option value="F">Féminin</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Edit" class="btn btn-success" />
+    <a asp-page="Index">Liste des étudiants</a>
+</form>
+

@@ -1,0 +1,87 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <!-- <strong>test strong</strong> <br>
+        <em>test Italique</em>
+       <style>
+             p {
+                 border: 1px solid red
+             }
+
+             div {
+                 border: 1px solid blue
+             }
+         </style>
+
+       <div>
+           <p>Call me Kareem.</p>
+           <p>Just don't call me late for dinner.</p>
+       </div>
+
+       <p>This text is inside the <strong>first</strong> paragraph element.</p>
+       <p style="color: blue;">This text is inside the second paragraph element—and it's BLUE!.</p>
+       This text isn't inside<br>
+       any paragraph element ...<br>
+       ...yet!
+       <p>This text is inside the third paragraph element.</p>
+
+    -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h1 class="display-4">RazorPages - CRUD - Sans Entity Framework</h1>
+    <hr />
+    <form method="post">
+        <div class="form-group">
+            Nom <input type="text" name="nom" placeholder="saisir le nom" />
+            Email <input type="email" name="email" placeholder="saisir l'email" />
+            Date Naissance <input type="date" name="datenaissance" />
+            Sexe <select id="sexe" name="sexe">
+                <option value="M">Masculin</option>
+                <option value="F">Féminin</option>
+            </select>
+            <input type="submit" value="Ajouter Etudiant" class="btn btn-success" />
+        </div>
+
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Date naissance</th>
+                <th>Sexe</th>
+            </tr>
+            @foreach (var element in Model.ListeEtudiants)
+            {
+                <tr>
+                    <td>@element.id</td>
+                    <td>@element.nom</td>
+                    <td>@element.email</td>
+                    <td>@element.datenaissance</td>
+                    <td>@element.sexe</td>
+                    <td><a asp-page="Edit" class="btn btn-info" asp-route-_id="@element.id">Mettre à jour</a></td>
+                    <td><a asp-page="Details" class="btn btn-primary" asp-route-_id="@element.id">Détails</a></td>
+                    <td><a asp-page="Delete" class="btn btn-danger" asp-route-_id="@element.id">Supprimer</a></td>
+                </tr>
+            }
+        </table>
+    </form>
+</div>
